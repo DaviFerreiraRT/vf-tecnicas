@@ -13,6 +13,27 @@ public class Compras {
     private List<Produtos> produtos;
     private Double valorCompra;
 
+    public UUID getUuid() {
+        return uuid;
+    }
 
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
 
+    public List<Produtos> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produtos> produtos) {
+        this.produtos = produtos;
+    }
+
+    public Double getValorCompra() {
+        return valorCompra;
+    }
+
+    public void setValorCompra(Double valorCompra) {
+        this.valorCompra = valorCompra;
+    }
 }
