@@ -8,13 +8,13 @@ import javax.persistence.*;
 public class Produto {
     @javax.persistence.Id
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer codBarra;
     private String nome;
     private String marca;
     private Integer quantidade;
     private Double preco;
     private String categoria;
+
 
     public String getNome() {
         return nome;
@@ -56,11 +56,11 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCodBarra(Integer id) {
+        this.codBarra = id;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getCodBarra() {
+        return this.codBarra;
     }
 }

@@ -1,7 +1,12 @@
 package br.edu.uni7.vf.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Cliente {
 
+    @Id
     private String cpf;
     private String nome;
     private Double totalGasto;

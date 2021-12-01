@@ -4,10 +4,7 @@ import br.edu.uni7.vf.model.Produto;
 import br.edu.uni7.vf.services.ProdutosServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ProdutoController {
@@ -25,5 +22,26 @@ public class ProdutoController {
     public Produto create(@RequestBody Produto produto) {
         return service.create(produto);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "produto/{codBarra}",method = RequestMethod.GET)
+    public Produto findByCodBarras(@PathVariable Integer codBarra){
+        return service.findByCodBarras(codBarra);
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "produto/{codBarra}",method = RequestMethod.DELETE)
+    public void remove(@PathVariable Integer codBarra){
+        service.delete(codBarra);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "produto/{codBarra}", method = RequestMethod.PUT)
+    public Produto update(@PathVariable Integer codBarra, @RequestBody Produto produto) {
+        return service.update(produto);
+    }
+
+
 
 }

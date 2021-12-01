@@ -4,12 +4,10 @@ import br.edu.uni7.vf.exceptions.QuantidadeInsuficienteException;
 import br.edu.uni7.vf.model.Produto;
 import br.edu.uni7.vf.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@EnableAutoConfiguration
 @Service
 public class ProdutosServices {
     private final ProdutosRepository produtosRepository;
@@ -39,12 +37,15 @@ public class ProdutosServices {
     public Produto create (Produto produto){
         return produtosRepository.save(produto);
     }
-    public Produto delete(Integer codDeBarra){
-        return produtosRepository.findById(codDeBarra).get();
+    public void delete(Integer codDeBarra){
+        produtosRepository.deleteById(codDeBarra);
     }
     public Produto update(Produto produto){
         return produtosRepository.save(produto);
+
     }
+
+
 
 
 }
