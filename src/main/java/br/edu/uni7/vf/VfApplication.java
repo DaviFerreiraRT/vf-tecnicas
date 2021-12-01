@@ -1,6 +1,5 @@
 package br.edu.uni7.vf;
 
-import br.edu.uni7.vf.model.Compras;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

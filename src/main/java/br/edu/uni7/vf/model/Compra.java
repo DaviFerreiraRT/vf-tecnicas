@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Document
-public class Compras {
+public class Compra {
     @Id
     private UUID uuid = UUID.randomUUID();
-    private List<Produtos> produtos;
+    private List<Produto> produtos;
     private Double valorCompra;
 
     public UUID getUuid() {
@@ -21,11 +21,11 @@ public class Compras {
         this.uuid = uuid;
     }
 
-    public List<Produtos> getProdutos() {
+    public List<Produto> getProdutos() {
         return produtos;
     }
 
-    public void setProdutos(List<Produtos> produtos) {
+    public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
 

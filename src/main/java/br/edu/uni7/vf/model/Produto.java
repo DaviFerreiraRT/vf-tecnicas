@@ -1,13 +1,20 @@
 package br.edu.uni7.vf.model;
 
-public class Produtos {
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.*;
+
+@Entity
+public class Produto {
+    @javax.persistence.Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String nome;
     private String marca;
     private Integer quantidade;
     private Double preco;
     private String categoria;
-    private Integer codBarras;
-
 
     public String getNome() {
         return nome;
@@ -49,11 +56,11 @@ public class Produtos {
         this.categoria = categoria;
     }
 
-    public Integer getCodBarras() {
-        return codBarras;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setCodBarras(Integer codBarras) {
-        this.codBarras = codBarras;
+    public Integer getId() {
+        return id;
     }
 }

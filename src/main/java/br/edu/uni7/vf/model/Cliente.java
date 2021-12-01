@@ -1,6 +1,6 @@
 package br.edu.uni7.vf.model;
 
-public class Clientes {
+public class Cliente {
 
     private String cpf;
     private String nome;
