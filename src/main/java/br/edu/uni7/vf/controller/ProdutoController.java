@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class ProdutoController {
 
@@ -41,7 +43,29 @@ public class ProdutoController {
     public Produto update(@PathVariable Integer codBarra, @RequestBody Produto produto) {
         return service.update(produto);
     }
+    @ResponseBody
+    @RequestMapping(value = "produto/codBarra/{codBarra}", method = RequestMethod.GET)
+    public List<Produto> findAllByCodigoDeBarra(@PathVariable String codBarra){
+        return service.findAllByCodBarra(codBarra);
+    }
 
+    @ResponseBody
+    @RequestMapping(value = "produto", method = RequestMethod.GET)
+    public List<Produto> findAllProdutos(){
+        return service.findAllProdutos();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "produto/categoria/{categoria}", method = RequestMethod.GET)
+    public List<Produto> findAllByCategoria(@PathVariable String categoria){
+        return service.findAllByCategoria(categoria);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "produto/faltando", method = RequestMethod.GET)
+    public List<Produto> findAllByQuantidadeZero(){
+        return service.findAllByQuantidadeZero();
+    }
 
 
 }

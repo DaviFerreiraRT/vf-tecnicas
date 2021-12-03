@@ -20,20 +20,6 @@ public class ProdutosServices {
     public Produto findByCodBarras(Integer codBarras){
         return produtosRepository.findById(codBarras).get();
     }
-
-    public List<Produto>  findAllEmptyProducts(List<Produto> produto) {
-        List<Produto> produtos = produto;
-
-        if (produtos != null){
-            for( Produto prod : produtos){
-                if (prod.getQuantidade() == 0){
-                    throw new QuantidadeInsuficienteException();
-                }
-            }
-        }
-        return produtosRepository.findAll();
-    }
-
     public Produto create (Produto produto){
         return produtosRepository.save(produto);
     }
@@ -44,6 +30,22 @@ public class ProdutosServices {
         return produtosRepository.save(produto);
 
     }
+
+    public List<Produto> findAllProdutos(){
+        return produtosRepository.findAll();
+    }
+    public List<Produto> findAllByCodBarra(String codBarra){
+        return produtosRepository.findAllByCodBarra(codBarra);
+    }
+
+    public List<Produto> findAllByCategoria(String categoria){
+        return produtosRepository.findAllByCategoria(categoria);
+    }
+
+    public List<Produto> findAllByQuantidadeZero(){
+        return produtosRepository.findAllByQuantidade(0);
+    }
+
 
 
 
