@@ -58,11 +58,11 @@ public class Produto {
     }
 
     public String getCategoria() {
-        return categoria;
+        return categoria.toLowerCase();
     }
 
     public void setCategoria(String categoria) {
-        this.categoria = categoria;
+        this.categoria = categoria.toLowerCase();
     }
 
     public void setCodBarra(String codBarra) {

@@ -58,7 +58,7 @@ public class ProdutoController {
     @ResponseBody
     @RequestMapping(value = "produto/categoria/{categoria}", method = RequestMethod.GET)
     public List<Produto> findAllByCategoria(@PathVariable String categoria){
-        return service.findAllByCategoria(categoria);
+        return service.findAllByCategoria(categoria.toLowerCase());
     }
 
     @ResponseBody
