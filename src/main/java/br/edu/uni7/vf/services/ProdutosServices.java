@@ -31,6 +31,9 @@ public class ProdutosServices {
         return produto;
 
     }
+    public Produto findById(Integer id){
+        return produtosRepository.findById(id).get();
+    }
 
     public List<Produto> findAllProdutos(){
         return produtosRepository.findAll();

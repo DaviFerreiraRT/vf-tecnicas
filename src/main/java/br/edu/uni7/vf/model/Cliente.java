@@ -12,7 +12,7 @@ public class Cliente {
     private Integer id;
     private String cpf;
     private String nome;
-    private Double totalGasto;
+    private double totalGasto =0;
 
 
     public Integer getId() {
@@ -39,11 +39,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Double getTotalGasto() {
+    public double getTotalGasto() {
         return totalGasto;
     }
 
-    public void setTotalGasto(Double totalGasto) {
+    public void setTotalGasto(double totalGasto) {
         this.totalGasto = totalGasto;
     }
 }

@@ -2,6 +2,7 @@ package br.edu.uni7.vf.controller;
 
 import br.edu.uni7.vf.model.Compra;
 import br.edu.uni7.vf.services.ComprasServices;
+import br.edu.uni7.vf.services.ProdutosServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

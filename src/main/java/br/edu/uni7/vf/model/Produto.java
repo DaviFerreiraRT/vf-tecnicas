@@ -13,7 +13,7 @@ public class Produto {
     private String nome;
     private String marca;
     private Integer quantidade;
-    private Double preco;
+    private double preco;
     private String categoria;
 
 
@@ -49,11 +49,11 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public Double getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(Double preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 

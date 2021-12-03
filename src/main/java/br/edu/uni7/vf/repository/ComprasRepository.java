@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 
-@Repository
+@Document
 public interface ComprasRepository extends MongoRepository<Compra, Integer> {
     List<Compra> findAllByCpfCliente(String cpfCliente);
 }
