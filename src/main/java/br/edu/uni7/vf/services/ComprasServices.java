@@ -50,13 +50,13 @@ public class ComprasServices {
                 } else {
                     valorTotal = valorTotal + (produtoDB.getPreco() * produto.getQuantidade());
                     produtoDB.setQuantidade(produtoDB.getQuantidade() - produto.getQuantidade());
+                    produtoRepository.save(produtoDB);
                 }
             }
         }
-        System.out.println(compra.getCpfCliente());
-        System.out.print(compra.getProdutos().get(0).getMarca());
         compra.setValor(valorTotal);
         clienteBD.setTotalGasto(clienteBD.getTotalGasto() + valorTotal);
+        clienteRepository.save(clienteBD);
         return compraRepository.save(compra);
 
     }
