@@ -42,4 +42,12 @@ public class ClienteController {
         return service.findByCpf(cpf);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "cliente/{id}",method = RequestMethod.DELETE)
+    public void remove(@PathVariable Integer id){
+             service.delete(id);
+    }
+
+
+
 }

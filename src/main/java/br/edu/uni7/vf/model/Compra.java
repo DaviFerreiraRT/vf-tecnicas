@@ -3,15 +3,21 @@ package br.edu.uni7.vf.model;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import org.springframework.data.annotation.Id;
+
+import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.UUID;
 
 @Document
 public class Compra {
     @Id
-    private UUID uuid = UUID.randomUUID();
+    private UUID uuid;
+    @OneToMany
     private List<Produto> produtos;
-    private Double valorCompra;
+    private double valor;
+    private String cpfCliente;
+    private String notaFiscal;
+
 
     public UUID getUuid() {
         return uuid;
@@ -29,11 +35,27 @@ public class Compra {
         this.produtos = produtos;
     }
 
-    public Double getValorCompra() {
-        return valorCompra;
+    public double getValor() {
+        return valor;
     }
 
-    public void setValorCompra(Double valorCompra) {
-        this.valorCompra = valorCompra;
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public String getCpfCliente() {
+        return cpfCliente;
+    }
+
+    public void setCpfCliente(String cpfCliente) {
+        this.cpfCliente = cpfCliente;
+    }
+
+    public String getNotaFiscal() {
+        return notaFiscal;
+    }
+
+    public void setNotaFiscal(String notaFiscal) {
+        this.notaFiscal = notaFiscal;
     }
 }
