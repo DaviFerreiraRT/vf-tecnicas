@@ -16,8 +16,6 @@ public class Compra {
     private List<Produto> produtos;
     private double valor;
     private String cpfCliente;
-    private String notaFiscal;
-
 
     public UUID getUuid() {
         return uuid;
@@ -49,13 +47,5 @@ public class Compra {
 
     public void setCpfCliente(String cpfCliente) {
         this.cpfCliente = cpfCliente;
-    }
-
-    public String getNotaFiscal() {
-        return notaFiscal;
-    }
-
-    public void setNotaFiscal(String notaFiscal) {
-        this.notaFiscal = notaFiscal;
     }
 }
