@@ -48,6 +48,13 @@ public class ClienteController {
              service.delete(id);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "cliente/{id}",method = RequestMethod.PUT)
+    public void update(@PathVariable Integer id,@RequestBody Cliente cliente){
+        cliente.setId(id);
+        service.update(cliente);
+    }
+
 
 
 }

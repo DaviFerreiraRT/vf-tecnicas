@@ -39,9 +39,10 @@ public class ProdutoController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "produto/{codBarra}", method = RequestMethod.PUT)
-    public Produto update(@PathVariable Integer codBarra, @RequestBody Produto produto) {
-        return service.update(produto);
+    @RequestMapping(value = "produto/{id}", method = RequestMethod.PUT)
+    public Produto update(@PathVariable Integer id, @RequestBody Produto produto) {
+        produto.setId(id);
+        return service.update(id,produto);
     }
     @ResponseBody
     @RequestMapping(value = "produto/codBarra/{codBarra}", method = RequestMethod.GET)

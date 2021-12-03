@@ -26,8 +26,9 @@ public class ProdutosServices {
     public void delete(Integer codDeBarra){
         produtosRepository.deleteById(codDeBarra);
     }
-    public Produto update(Produto produto){
-        return produtosRepository.save(produto);
+    public Produto update(Integer id,Produto produto){
+        produtosRepository.save(produto);
+        return produto;
 
     }
 

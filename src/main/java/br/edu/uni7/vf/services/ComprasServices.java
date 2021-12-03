@@ -36,6 +36,7 @@ public class ComprasServices {
 
     public Compra create(Compra compra) {
         double valorTotal = 0;
+        System.out.println(compra.getCpfCliente());
 
         Cliente clienteBD = clienteRepository.findByCpf(compra.getCpfCliente());
         if (clienteBD == null) {

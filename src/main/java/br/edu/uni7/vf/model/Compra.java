@@ -1,9 +1,7 @@
 package br.edu.uni7.vf.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import org.springframework.data.annotation.Id;
-
 import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.UUID;
@@ -11,7 +9,7 @@ import java.util.UUID;
 @Document
 public class Compra {
     @Id
-    private UUID uuid;
+    private UUID uuid = UUID.randomUUID();
     @OneToMany
     private List<Produto> produtos;
     private double valor;
