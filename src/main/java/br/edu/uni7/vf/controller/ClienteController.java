@@ -6,10 +6,9 @@ import br.edu.uni7.vf.services.ClientesServices;
 import br.edu.uni7.vf.services.ProdutosServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class ClienteController {
@@ -25,6 +24,22 @@ public class ClienteController {
     @RequestMapping(value = "cliente", method = RequestMethod.POST)
     public Cliente create(@RequestBody Cliente cliente) {
         return service.create(cliente);
+    }
+    @ResponseBody
+    @RequestMapping(value = "cliente", method = RequestMethod.GET)
+    public List<Cliente> findAll(){
+        return service.findAll();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "cliente/{id}", method = RequestMethod.GET)
+    public Cliente findById(@PathVariable Integer id){
+        return service.findById(id);
+    }
+    @ResponseBody
+    @RequestMapping(value = "cliente/cpf/{cpf}",method = RequestMethod.GET)
+    public Cliente findByCPF(@PathVariable String cpf){
+        return service.findByCpf(cpf);
     }
 
 }
