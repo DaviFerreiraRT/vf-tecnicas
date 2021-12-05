@@ -1,6 +1,7 @@
 package br.edu.uni7.vf.services;
 
 import br.edu.uni7.vf.exceptions.ClienteDesconhecido;
+import br.edu.uni7.vf.exceptions.ProdutoDesconhecidoException;
 import br.edu.uni7.vf.exceptions.QuantidadeInsuficienteException;
 import br.edu.uni7.vf.model.Cliente;
 import br.edu.uni7.vf.model.Compra;
@@ -45,12 +46,17 @@ public class ComprasServices {
         if (produtos != null) {
             for (Produto produto : produtos) {
                 Produto produtoDB = produtoRepository.findById(produto.getId()).get();
-                if (produtoDB.getQuantidade() < produto.getQuantidade()) {
-                    throw new QuantidadeInsuficienteException();
-                } else {
-                    valorTotal = valorTotal + (produtoDB.getPreco() * produto.getQuantidade());
-                    produtoDB.setQuantidade(produtoDB.getQuantidade() - produto.getQuantidade());
-                    produtoRepository.save(produtoDB);
+                if(produtoDB == null){
+                    throw new ProdutoDesconhecidoException();
+                }
+                else {
+                    if (produtoDB.getQuantidade() < produto.getQuantidade()) {
+                        throw new QuantidadeInsuficienteException();
+                    } else {
+                        valorTotal = valorTotal + (produtoDB.getPreco() * produto.getQuantidade());
+                        produtoDB.setQuantidade(produtoDB.getQuantidade() - produto.getQuantidade());
+                        produtoRepository.save(produtoDB);
+                    }
                 }
             }
         }
